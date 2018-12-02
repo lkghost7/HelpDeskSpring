@@ -30,6 +30,9 @@
                 <li th:if="${userAuthority.equals('Operator')}">
                     <a href="/Operator">Оператор</a>
                 </li>
+                <li th:if="${userAuthority.equals('Executor')}">
+                    <a href="/Executor">Исполнитель</a>
+                </li>
                 <div class="top-bar-right">
                     <!--<ul class="nav navbar-nav">-->
                     <!--<li class="active"><a th:href="@{/adminEdit}"-->

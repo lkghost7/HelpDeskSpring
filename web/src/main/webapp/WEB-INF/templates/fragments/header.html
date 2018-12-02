@@ -1,0 +1,52 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Desk</title>
+    <link rel="stylesheet" href="/resources/css/foundation.css">
+    <link rel="stylesheet" href="/resources/css/app.css">
+</head>
+
+<body>
+<div th:fragment="header">
+    <div class="top-bar" id="my-nav-menu">
+        <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li><a href="/HelpDesk" th:text="#{HD.title}"></a></li>
+                <li>
+                    <a href="/HelpDesk">Test</a>
+                    <ul class="menu vertical">
+                        <li><a href="/HelpDesk">Test - базовая информация</a></li>
+                        <li><a href="/HelpDesk">Test - общее описание</a></li>
+                    </ul>
+                </li>
+                <li th:if="${userAuthority.equals('Admin')}">
+                    <a href="/Admin">Администратор</a>
+                </li>
+                <li th:if="${userAuthority.equals('Operator')}">
+                    <a href="/Operator">Оператор</a>
+                </li>
+                <div class="top-bar-right">
+                    <!--<ul class="nav navbar-nav">-->
+                    <!--<li class="active"><a th:href="@{/adminEdit}"-->
+                    <!--sec:authorize="hasAuthority('Admin')">Администратор</a></li>-->
+                    <!--</ul>-->
+                    <!--<li th:text="${systemUsername}"></li>-->
+                    <ul class="menu">
+                        <li><a href="/person" th:text="${systemUsername}"></a></li>
+                        <li><a href="/person" ><img th:src='@{../../../resources/pic/svg/gear.svg}'></a></li>
+                        <li><a href="/logout">Выход</a></li>
+                        </a>
+                    </ul>
+                </div>
+            </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+</body>
+</html>

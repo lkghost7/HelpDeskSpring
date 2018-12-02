@@ -1,0 +1,91 @@
+body {
+    background: #625fdc0f;
+}
+
+.vinty-color {
+    color: #3d4bb7;
+}
+
+.vinty-border-radius {
+    border-radius: 15px;
+}
+.top-bar, .top-bar ul {
+    background-color: #3d4bb7;
+}
+
+.dropdown.menu a {
+    margin-top: -6px !important;
+    padding: 29px 15px 29px 12px;
+    color: #f4f5fa;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+li a img {
+    margin-top: -4px;
+}
+
+table thead, table tbody, table tfoot {
+    border: 0px solid #f1f1f1;
+    background-color: #fefefe;
+}
+/*--------------------*/
+.button.primary.vinty {
+    background-color: #3d4bb7;
+    color: #f4f5ff;
+    font-size: 16px;
+    border-radius: 15px;
+}
+
+.button.primary.vinty:hover, .button.primary.vinty:focus {
+    background-color: #2890e4;
+    color: #f9f9f9;
+    border-radius: 15px;
+}
+
+.button.hollow.secondary {
+    border: 1px solid #767676;
+    color: #3d4bb7;
+    border-radius: 15px;
+}
+
+.button.hollow.secondary:hover, .button.hollow.secondary:focus {
+    border: 1px solid #767676;
+    color: #3d4bb7;
+    border-radius: 15px;
+}
+
+/*------------------*/
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+    background-color: #f4f5ff;
+}
+
+table thead th {
+    padding: 0.5rem 0.625rem 0.625rem;
+    font-weight: bold;
+    text-align: left;
+    color: #3d4bb7;
+    background-color: #f4f5ff;
+    border-radius: 15px;
+}
+
+[type='text'], [type='password'] {
+    border-radius: 15px;
+}
+
+select {
+    border-radius: 15px;
+}
+
+/*option {*/
+/*border-radius: 15px;*/
+/*}*/
+
+select:focus {
+    border: 1px solid #3d4bb7;
+    border-radius: 15px;
+}

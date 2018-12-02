@@ -1,0 +1,63 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+
+    <link rel="stylesheet" href="/resources/css/foundation.css">
+    <link rel="stylesheet" href="/resources/css/app.css">
+</head>
+<body>
+<div>
+    <div class="row">
+        <h1 align="center" th:text="#{login.registration}">Регистрация</h1>
+        <div class="grid-container">
+            <div class="medium-3 columns">
+            </div>
+            <!--<div class="callout">-->
+            <img src="/resources/pic/registration.jpg">
+            <div class="medium-6 columns">
+                <form id="1" th:action="@{/registration}" method="post" th:object="${systemUsersDto}">
+                    <span th:text="#{email_you_login.emaillogin}">ваш login</span>
+                    <input type="text" th:field="*{email}" placeholder="JonDou1978@gmail.com" required="required">
+                    <span th:text="#{password.mypassword}">password</span>
+                    <input type="text" th:field="*{passwordUser}" th:placeholder="#{registration.enterPass}"
+                           required="required">
+                    <!--<label th:for="nameUser">Имя</label>-->
+                    <span th:text="#{login.name}">userName</span>
+                    <input type="text" th:field="*{nameUser}" th:placeholder="#{registration.enterName}"/>
+                    <span th:text="#{login.family}">family</span>
+                    <!--<label th:for="familyUser">Фамилия</label>-->
+                    <input type="text" th:field="*{familyUser}" th:placeholder="#{registration.enterFamily}">
+                    <select th:field="*{branchId}">
+                        <option th:each="branch : ${branches}"
+                                th:value="${branch.id}"
+                                th:text="${branch.name}">
+                        </option>
+                    </select><br>
+                    <select th:field="*{subdivisionId}">
+                        <option th:each="subdivision : ${subdivisions}"
+                                th:value="${subdivision.id}"
+                                th:text="${subdivision.name}">
+                        </option>
+                    </select><br>
+                    <button type="submit" th:text="#{login.registration}" class="success  expanded button">
+                        Зарегистрировать
+                    </button>
+                    <a class="hollow expanded button" href="/login" th:text="#{login.enter}">Вход в систему</a>
+                </form>
+            </div>
+            <div class="medium-3 columns">
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="/resources/js/vendor/jquery.js"></script>
+<script src="/resources/js/vendor/what-input.js"></script>
+<script src="/resources/js/vendor/foundation.js"></script>
+<script src="/resources/js/app.js"></script>
+</body>
+</html>

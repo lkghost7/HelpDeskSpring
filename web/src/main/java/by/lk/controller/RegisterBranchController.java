@@ -1,13 +1,8 @@
 package by.lk.controller;
 
-import by.lk.dto.SystemUserDto;
 import by.lk.entity.Branch;
-import by.lk.entity.Subdivision;
 import by.lk.entity.SystemUser;
-import by.lk.entity.Task;
 import by.lk.repository.BranchRepository;
-import by.lk.repository.SubdivisionRepository;
-import by.lk.services.TaskService;
 import by.lk.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -26,21 +21,12 @@ public class RegisterBranchController {
 
     private final UserService userService;
     private final BranchRepository branchRepository;
-    private final SubdivisionRepository subdivisionRepository;
-    private final TaskService taskService;
 
     @Autowired
     public RegisterBranchController(UserService userService, BranchRepository
-            branchRepository, SubdivisionRepository subdivisionRepository, TaskService taskService) {
+            branchRepository) {
         this.userService = userService;
         this.branchRepository = branchRepository;
-        this.subdivisionRepository = subdivisionRepository;
-        this.taskService = taskService;
-    }
-
-    @ModelAttribute("systemUsersDto")
-    public SystemUserDto systemUsersDto() {
-        return new SystemUserDto();
     }
 
     @ModelAttribute("branches")
@@ -48,15 +34,6 @@ public class RegisterBranchController {
         return branchRepository.findAll();
     }
 
-    @ModelAttribute("subdivisions")
-    public List<Subdivision> subdivisions() {
-        return subdivisionRepository.findAll();
-    }
-
-    @ModelAttribute("executorTasks")
-    public List<Task> findTaskExecutor (){
-        return taskService.findExecutorTask(22L);
-    }
 
     @ModelAttribute("systemUsers")
     public SystemUser systemUser() {

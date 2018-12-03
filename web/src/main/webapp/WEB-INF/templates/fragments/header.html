@@ -18,10 +18,12 @@
             <ul class="dropdown menu" data-dropdown-menu>
                 <li><a href="/HelpDesk" th:text="#{HD.title}"></a></li>
                 <li>
-                    <a href="/HelpDesk">Test</a>
+                    <a href="/HelpDesk">Функционал</a>
                     <ul class="menu vertical">
-                        <li><a href="/HelpDesk">Test - базовая информация</a></li>
-                        <li><a href="/HelpDesk">Test - общее описание</a></li>
+                        <li><a href="/registerBranch">посмотреть филиалы</a></li>
+                        <li><a href="/registerSubdivision">посомтреть подразделения</a></li>
+                        <li><a href="/registerUser">посмотреть всех пользователей</a></li>
+                        <li><a href="/adminFillPage">заполнить справочники</a></li>
                     </ul>
                 </li>
                 <li th:if="${userAuthority.equals('Admin')}">

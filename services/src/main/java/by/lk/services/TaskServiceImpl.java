@@ -4,6 +4,7 @@ import by.lk.dto.TaskDto;
 import by.lk.entity.Status;
 import by.lk.entity.SystemUser;
 import by.lk.entity.Task;
+import by.lk.repository.SystemUserRepository;
 import by.lk.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,9 +20,18 @@ public class TaskServiceImpl implements TaskService {
 
     private final TaskRepository taskRepository;
 
+    private final SystemUserRepository systemUserRepository;
+
     @Autowired
-    public TaskServiceImpl(TaskRepository taskRepository) {
+    public TaskServiceImpl(TaskRepository taskRepository, SystemUserRepository systemUserRepository) {
         this.taskRepository = taskRepository;
+        this.systemUserRepository = systemUserRepository;
+    }
+
+    @Override
+    public List<Task> findExecutorTask(Long executorId) {
+        return taskRepository
+                .findAllByExecutorEquals(systemUserRepository.findOne(executorId));
     }
 
     @Override

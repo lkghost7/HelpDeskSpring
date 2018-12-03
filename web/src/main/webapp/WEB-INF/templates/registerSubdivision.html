@@ -1,0 +1,71 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regSubdivison</title>
+    <link rel="stylesheet" href="/resources/css/foundation.css">
+    <link rel="stylesheet" href="/resources/css/app.css">
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<br>
+<br>
+<br>
+<br>
+
+<h1>Зарегистрированные подразделения</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th width="50">ID</th>
+        <th width="250">Название подразделения</th>
+
+    </tr>
+    </thead>
+    <tbody th:each="subdivision : ${subdivisions}">
+    <tr name="taskTableName">
+        <td th:text="${subdivision.id}"></td>
+        <td th:text="${subdivision.name}"></td>
+    </tr>
+    </tbody>
+</table>
+
+
+<div class="grid-container">
+    <div class="grid-x grid-padding-x">
+        <div class="medium-3 cell">
+        </div>
+        <div class="medium-6 cell">
+            <div class="expanded button-group">
+                <A class="button primary hollow" href="/Admin"> <b> Добавить
+                    новое подразделение</b> </A>
+            </div>
+            <div class="medium-3 cell">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="grid-container">
+    <div class="grid-x grid-padding-x">
+        <div class="medium-3 cell">
+        </div>
+        <div class="medium-6 cell">
+            <div class="expanded button-group">
+                <A class="button primary " href="/Admin"> <b> Вернутся на главную
+                    страницу админки</b> </A>
+            </div>
+            <div class="medium-3 cell">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

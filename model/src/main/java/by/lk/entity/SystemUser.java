@@ -48,4 +48,8 @@ public class SystemUser extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "subdivision_id")
     private Subdivision subdivision;
+
+    public SystemUser(Long id) {
+        super(id);
+    }
 }

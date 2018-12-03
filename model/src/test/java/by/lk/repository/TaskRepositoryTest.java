@@ -67,12 +67,12 @@ public class TaskRepositoryTest extends CommonTest {
         List<Task> actual = Arrays.asList(task);
         List<Task> expected = taskRepository.findByName(name);
         Assert.assertEquals(actual.get(0).getName(), expected.get(0).getName());
+        taskRepository.delete(taskId);
     }
 
-    @After
-    public void finish() {
-        taskRepository.delete(taskId);
-        final Task one = taskRepository.findOne(taskId.getId());
-        assertNull(one);
+    @Test
+    public void findByExecutorIdTest() {
+        List<Task> taskList = taskRepository.findAllByExecutorEquals(systemUserRepository.findOne(22L));
+        Assert.assertNotNull(taskList);
     }
 }

@@ -19,10 +19,11 @@ public class Branch extends BaseEntity {
     @Column(name = "name")
     private String name;
 
-    public static Branch newInstanceAllArgs(Long id, String name) {
+    public static Branch newInstanceAllArgs(Long id, String name, String address) {
         Branch branch = new Branch();
         branch.setId(id);
         branch.setName(name);
+
         return branch;
     }
 }

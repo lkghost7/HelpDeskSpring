@@ -1,0 +1,51 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+
+    <link rel="stylesheet" th:href="@{/resources/css/foundation.css}">
+    <link rel="stylesheet" th:href="@{/resources/css/app.css}">
+
+</head>
+<body>
+<div class="grid-container">
+    <div class="row">
+        <div class="medium-3 columns">
+        </div>
+        <div class="medium-6 columns">
+            <br>
+            <br>
+            <br>
+            <br>
+            <h1 th:text="#{login.auth}"></h1>
+            <br>
+            <form th:action="@{/login}" method="post">
+                <label for="username" th:text="#{email_you_login.emaillogin}"><strong>E-mail: </strong></label>
+                <input width="650" type="text" name="username" id="username" required="required">
+                <label for="password" th:text="#{login.password}"><strong>E-mail: </strong></label>
+                <input width="650" type="password" name="password" id="password" required="required"><br>
+                <button type="submit" class="primary vinty expanded button" th:text="#{login.enter}">Enter</button>
+                <br>
+            </form>
+            <a class="hollow expanded secondary button" href="/registration" th:text="#{login.registration}">Registration}</a>
+        </div>
+        <div class="medium-3 columns">
+            <a href="?language=ru_RU">На русском языке/</a> <a href="?language=en_US">
+            in English</a>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<script src="/resources/js/vendor/jquery.js"></script>
+<script src="/resources/js/vendor/what-input.js"></script>
+<script src="/resources/js/vendor/foundation.js"></script>
+<script src="/resources/js/app.js"></script>
+</body>
+</html>

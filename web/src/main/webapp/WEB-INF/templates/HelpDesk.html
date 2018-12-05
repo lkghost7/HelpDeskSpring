@@ -1,0 +1,92 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Desk</title>
+    <link rel="stylesheet" href="/resources/css/foundation.css">
+    <link rel="stylesheet" href="/resources/css/app.css">
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div>
+    <div class="row">
+        <h1 class="vinty-color" align="center" th:text="#{HD.title}">Техподдержка</h1>
+        <div class="grid-container">
+            <div class="medium-3 columns">
+            </div>
+            <div class="medium-6 columns">
+                <div th:switch="${userAuthority}">
+                    <!--<h3 th:text="${systemUsername}"></h3>-->
+                    <h5 th:case="'Admin'" th:text="#{auth.admin}"></h5>
+                    <h5 th:case="'Operator'" th:text="#{auth.Operator}"></h5>
+                    <!--<h5 th:case="'User'" th:text="#{auth.user}"></h5>-->
+                    <!--<h5 th:case="'User'" th:text="${systemUsername} #{auth.user}"></h5>-->
+
+                    <!--<p th:case="'Admin'" th:text="#{auth.admin}"></p>-->
+                    <!--<p th:case="'Operator'" th:text="#{auth.Operator}"></p>-->
+                    <!--<p th:case="'User'" th:text="#{auth.user}"></p>-->
+                </div>
+                <div th:if="${userAuthority.equals('Admin')}">
+                    <div>Ты Админ! С большой силой приходит большая ответственность.</div>
+                </div>
+                <!--<div th:if="${userAuthority.equals('Operator')}">-->
+                <!--<div>Ты Оператор.</div>-->
+                <!--</div>-->
+                <form id="1" th:action="@{/HelpDesk}" method="post" th:object="${taskDto}">
+                    <label for="textArea" th:text="#{HD.textArea}"></label>
+                    <textarea id="textArea" rows="4" type="text" th:field="*{text}" th:placeholder="#{HD.text}"
+                              required="required"></textarea>
+                    <label for="listeners" th:text="#{listener.chose}"> </label>
+                    <select id="listeners">
+                        <option th:each="listener : ${listeners}"
+                                th:value="${listener.getId()}"
+                                th:text="${listener.getName()}">
+                        </option>
+                    </select><br>
+                    <!--<select th:field="*{typeOfJobId}">-->
+                    <!--<option th:each="privilege : ${privileges}"-->
+                    <!--th:value="${privilege.getId()}"-->
+                    <!--th:text="${privilege.getNamePrivilege()}">-->
+                    <!--</option>-->
+                    <!--</select><br>-->
+                    <button type="submit" th:text="#{HD.submit}" class="primary vinty expanded button">Зарегистрировать
+                    </button>
+                </form>
+                <h2 align="center" th:text="#{HD.self}">Свои заявки</h2>
+                <!--<div th:replace="fragments/table :: table"/>-->
+                <div th:fragment="table">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th width="100">Номер заявки</th>
+                            <th width="1000">Текст</th>
+                        </tr>
+                        </thead>
+                        <tr th:each="task : ${taskDtoList}">
+                            <td th:text="${task.id}"></td>
+                            <td th:text="${task.text}"></td>
+                            <td>
+                                <a th:href="${'/HelpDesk/delete/' + task.id}"
+                                   title="Удалить запись. Операция необратима!">
+                                    <img th:src='@{../../resources/pic/svg/delete.svg}'>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="medium-3 columns">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/resources/js/vendor/jquery.js"></script>
+<script src="/resources/js/vendor/what-input.js"></script>
+<script src="/resources/js/vendor/foundation.js"></script>
+<script src="/resources/js/app.js"></script>
+</body>
+</html>

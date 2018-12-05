@@ -1,0 +1,16 @@
+2018-12-03 23:26:21,083 INFO  - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-12-03 23:26:21,265 INFO  - HHH000412: Hibernate Core {5.2.17.Final}
+2018-12-03 23:26:21,267 INFO  - HHH000206: hibernate.properties not found
+2018-12-03 23:26:21,330 INFO  - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-12-03 23:26:23,495 INFO  - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2018-12-03 23:26:23,683 INFO  - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2018-12-03 23:26:23,687 INFO  - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@7859e786
+2018-12-03 23:26:24,259 INFO  - HV000001: Hibernate Validator 5.4.1.Final
+2018-12-03 23:26:28,952 INFO  - HHH000397: Using ASTQueryTranslatorFactory
+2018-12-03 23:26:31,102 WARN  - SQL Error: 0, SQLState: 23503
+2018-12-03 23:26:31,102 ERROR - ОШИБКА: UPDATE или DELETE в таблице "system_users" нарушает ограничение внешнего ключа "task_executor_id_fk" таблицы "tasks"
+  Подробности: На ключ (id)=(215) всё ещё есть ссылки в таблице "tasks".
+2018-12-03 23:26:31,103 INFO  - HHH000010: On release of batch it still contained JDBC statements
+2018-12-03 23:26:31,104 ERROR - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]

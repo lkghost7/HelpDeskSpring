@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Header</title>
+</head>
+<body>
+<div th:fragment="table">
+    <table>
+        <thead>
+        <tr>
+            <th width="100">Номер заявки</th>
+            <th width="400">Текст</th>
+            <th>Принял</th>
+            <th>Время принятия</th>
+            <th>Исполнитель</th>
+            <th>Завершена в...</th>
+        </tr>
+        </thead>
+        <tr th:each="task : ${taskDtoList}">
+            <td th:text="${task.id}"></td>
+            <td th:text="${person.firstName}"></td>
+            <td th:text="${person.sName}"></td>
+            <td th:text="${person.numberShot}"></td>
+            <td th:text="${person.numberCity}"></td>
+            <td th:text="${person.numberMobil}"></td>
+            <td>
+                <a th:href="${'/personBranch/byTreeId/' + person.treeId}"><img th:src='@{/pic/icons8.png}'
+                                                                               title="Выбрать всех с таким же подразделением"></a>
+            </td>
+            <td th:text="${person.presentPositionS}"></td>
+            <td th:text="${person.room}"></td>
+            <td>
+                <a th:href="${'/personBranch/byRoom/' + person.id  }"><img th:src='@{/pic/office.png}'
+                                                                           title="Выбрать всех в этой комнате этого подразделения"></a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

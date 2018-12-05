@@ -1,0 +1,67 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regBranch</title>
+    <link rel="stylesheet" href="/resources/css/foundation.css">
+    <link rel="stylesheet" href="/resources/css/app.css">
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<br>
+<br>
+
+<h2 align="center">Зарегистрированные филиалы</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>id филиала</th>
+        <th>наименование филиала</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="branch : ${branches}">
+        <td th:text="${branch.id}"></td>
+        <td th:text="${branch.name}"></td>
+    </tr>
+
+    </tbody>
+</table>
+
+<div class="grid-container">
+    <div class="grid-x grid-padding-x">
+        <div class="medium-3 cell">
+        </div>
+        <div class="medium-6 cell">
+            <div class="expanded button-group">
+                <A class="button primary hollow" href="/adminFillPage"> <b> Добавить
+                    новое подразделение</b> </A>
+            </div>
+            <div class="medium-3 cell">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="grid-container">
+    <div class="grid-x grid-padding-x">
+        <div class="medium-3 cell">
+        </div>
+        <div class="medium-6 cell">
+            <div class="expanded button-group">
+                <A class="button primary " href="/Admin"> <b> Вернутся на главную
+                    страницу админки</b> </A>
+            </div>
+            <div class="medium-3 cell">
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

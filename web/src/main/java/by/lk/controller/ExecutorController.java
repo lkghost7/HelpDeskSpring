@@ -3,16 +3,22 @@ package by.lk.controller;
 import by.lk.dto.SystemUserDto;
 import by.lk.entity.Branch;
 import by.lk.entity.Subdivision;
+import by.lk.entity.SystemUser;
 import by.lk.entity.Task;
 import by.lk.repository.BranchRepository;
 import by.lk.repository.SubdivisionRepository;
 import by.lk.services.TaskService;
 import by.lk.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -55,4 +61,7 @@ public class ExecutorController {
     public String showRegistrationForm() {
         return "Executor";
     }
+
 }
+
+

@@ -16,21 +16,19 @@
 <br>
 <br>
 
-<h2 align="center">Зарегистрированные филиалы</h2>
+<h2 align="center">Текущие заявки</h2>
 
 <table>
     <thead>
     <tr>
-        <th>id филиала</th>
-        <th>наименование филиала</th>
+        <th>Task Name</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="branch : ${branches}">
-        <td th:text="${branch.id}"></td>
-        <td th:text="${branch.name}"></td>
+    <tr th:each="task : ${executorTasks}">
+        <td th:text="${task.name}"></td>
+        <td th:text="${task.text}"></td>
     </tr>
-
     </tbody>
 </table>
 
@@ -70,3 +68,6 @@
 <script src="/resources/js/app.js"></script>
 </body>
 </html>
+
+
+

@@ -54,13 +54,13 @@ public class RegisterUserController {
     }
 
     @ModelAttribute("executorTasks")
-    public List<Task> findTaskExecutor (){
+    public List<Task> findTaskExecutor() {
         return taskService.findExecutorTask(22L);
     }
 
     @ModelAttribute("systemUsers")
-    public SystemUser systemUser() {
-        return new SystemUser();
+    public List<SystemUser> systemUser() {
+        return userService.findAll();
     }
 
     @GetMapping(path = "/registerUser")

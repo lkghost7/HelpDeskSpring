@@ -30,7 +30,8 @@ public class ExecutorController {
     private final TaskService taskService;
 
     @Autowired
-    public ExecutorController(UserService userService, BranchRepository branchRepository, SubdivisionRepository subdivisionRepository, TaskService taskService) {
+    public ExecutorController(UserService userService, BranchRepository
+            branchRepository, SubdivisionRepository subdivisionRepository, TaskService taskService) {
         this.userService = userService;
         this.branchRepository = branchRepository;
         this.subdivisionRepository = subdivisionRepository;
@@ -53,15 +54,24 @@ public class ExecutorController {
     }
 
     @ModelAttribute("executorTasks")
-    public List<Task> findTaskExecutor (){
+    public List<Task> findTaskExecutor() {
         return taskService.findExecutorTask(22L);
     }
 
-    @GetMapping(path = "/Executor")
-    public String showRegistrationForm() {
-        return "Executor";
+    @ModelAttribute("systemUsers")
+    public SystemUser systemUser() {
+        return new SystemUser();
     }
 
+    @GetMapping(path = "/Executor")
+    public String showHelpDesk(Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String systemUserEmail = user.getUsername();
+        Collection<GrantedAuthority> priveleges = user.getAuthorities();
+        if (priveleges.iterator().hasNext()) {
+            model.addAttribute("userAuthority", priveleges.iterator().next().getAuthority().toString());
+        }
+        model.addAttribute("systemUsername", systemUserEmail);
+        return "Executor";
+    }
 }
-
-

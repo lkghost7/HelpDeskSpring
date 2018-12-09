@@ -6,16 +6,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrator Tools</title>
-    <link rel="stylesheet" href="../resources/css/foundation.css">
-    <link rel="stylesheet" href="../resources/css/app.css">
-</head>
-    <meta charset="UTF-8">
-    <title>HelpDesk</title>
+    <title>executorTask</title>
+    <link rel="stylesheet" href="/resources/css/foundation.css">
+    <link rel="stylesheet" href="/resources/css/app.css">
 </head>
 <body>
-<p>страница исполнителя</p>
+<div th:replace="fragments/header :: header"></div>
 
+<br>
+<br>
+
+<h2 align="center">Текущие заявки</h2>
 
 <table>
     <thead>
@@ -31,38 +32,26 @@
     </tbody>
 </table>
 
-<table>
-    <thead>
-    <tr>
-        <th>Task Name</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="task : ${executorTasks}">
-        <td th:text="${task.name}"></td>
 
-    </tr>
-    </tbody>
-</table>
+<div class="grid-container">
+    <div class="grid-x grid-padding-x">
+        <div class="medium-3 cell">
+        </div>
+        <div class="medium-6 cell">
+            <div class="expanded button-group">
+                <A class="button primary " href="/HelpDesk"> <b> Вернутся на главную
+                    страницу исполнителя</b> </A>
+            </div>
+            <div class="medium-3 cell">
+            </div>
+        </div>
+    </div>
+</div>
 
 
-<!--<select th:field="*{branchId}">-->
-    <!--<option th:each="branch : ${branches}"-->
-            <!--th:value="${branch.id}"-->
-            <!--th:text="${branch.name}">-->
-    <!--</option>-->
-<!--</select><br>-->
-
-<!--<select th:field="*{subdivisionId}">-->
-    <!--<option th:each="subdivision : ${subdivisions}"-->
-            <!--th:value="${subdivision.id}"-->
-            <!--th:text="${subdivision.name}">-->
-    <!--</option>-->
-<!--</select>-->
 <script src="/resources/js/vendor/jquery.js"></script>
 <script src="/resources/js/vendor/what-input.js"></script>
 <script src="/resources/js/vendor/foundation.js"></script>
 <script src="/resources/js/app.js"></script>
-
 </body>
 </html>

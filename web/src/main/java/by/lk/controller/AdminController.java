@@ -38,5 +38,4 @@ public class AdminController {
         model.addAttribute("systemUsername", systemUserEmail);
         return "Admin";
     }
-
 }

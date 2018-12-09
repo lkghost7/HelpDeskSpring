@@ -57,7 +57,7 @@ public class RegistrationController {
         systemUserDtoForDB.setFamilyUser(systemUsersDto.getFamilyUser());
         systemUserDtoForDB.setEmail(systemUsersDto.getEmail());
         systemUserDtoForDB.setPasswordUser(systemUsersDto.getPasswordUser());
-        systemUserDtoForDB.setPrivilegeId(1L);
+        systemUserDtoForDB.setPrivilegeId(2L);
         systemUserDtoForDB.setBranchId(systemUsersDto.getBranchId());
         systemUserDtoForDB.setSubdivisionId(systemUsersDto.getSubdivisionId());
         userService.saveUser(systemUserDtoForDB);

@@ -25,34 +25,7 @@ public class TaskRepositoryTest extends CommonTest {
     @Autowired
     private TaskRepository taskRepository;
 
-    @Test
-    public void saveTest() {
-        Set<Privilege> privileges = new HashSet<>();
-        Privilege privilege = new Privilege();
-        privilege.setId(1L);
-        privileges.add(privilege);
 
-        SystemUser systemUser = new SystemUser();
-        systemUser.setNameUser("Тестовое Имя");
-        systemUser.setFamilyUser("Тестовая фамилия");
-        systemUser.setPasswordUser("какойто пароль");
-        systemUser.setEmail("vvv@testMail.com");
-        systemUser.setPrivilege(privileges);
-        userId = systemUserRepository.save(systemUser);
-
-        Task task = new Task();
-        task.setName("Виталий");
-        task.setText("Это заявка в свободной форме.");
-        task.setSystemUser(systemUser);
-        task.setOperator(systemUser);
-        task.setExecutor(systemUser);
-        task.setStatus(new Status(1L));
-        taskId = taskRepository.save(task);
-
-        Task myTask = taskRepository.findOne(taskId.getId());
-        Assert.assertEquals(taskId.getId(), myTask.getId());
-        systemUserRepository.delete(userId);
-    }
 
     @Test
     public void findByNameTest() {

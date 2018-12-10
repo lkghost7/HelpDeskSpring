@@ -17,14 +17,53 @@
         <div class="top-bar-left">
             <ul class="dropdown menu" data-dropdown-menu>
                 <li><a href="/HelpDesk" th:text="#{HD.title}"></a></li>
-                <li>
-                    <a href="/HelpDesk">Функционал</a>
+
+
+                <li th:if="${userAuthority.equals('Admin')}">
+                    <a href="/HelpDesk">Админка</a>
                     <ul class="menu vertical">
                         <li><a href="/registerBranch">посмотреть филиалы</a></li>
                         <li><a href="/registerSubdivision">посомтреть подразделения</a></li>
                         <li><a href="/registerUser">посмотреть всех пользователей</a></li>
                         <li><a href="/adminFillPage">заполнить справочники</a></li>
                     </ul>
+                </li>
+
+
+                <li th:if="${userAuthority.equals('User')}">
+                    <a href="/HelpDesk">Меню юзера</a>
+                    <ul class="menu vertical">
+                        <li><a href="/HelpDesk">посмотреть отчет</a></li>
+                        <li><a href="/HelpDesk">посмотреть все свои заявки</a></li>
+                        <li><a href="/HelpDesk">посмотреть закрытые заявки</a></li>
+                        <li><a href="/HelpDesk">посмотреть открытые заявки</a></li>
+                    </ul>
+                </li>
+
+                <li th:if="${userAuthority.equals('Operator')}">
+                    <a href="/HelpDesk">Меню оператора</a>
+                    <ul class="menu vertical">
+                        <li><a href="/HelpDesk">назначить исполнителя</a></li>
+                        <li><a href="/HelpDesk">посмотреть все заявки</a></li>
+                        <li><a href="/HelpDesk">все исполнители</a></li>
+                        <li><a href="/HelpDesk">закрытые заявки</a></li>
+                    </ul>
+                </li>
+
+
+                <li th:if="${userAuthority.equals('Executor')}">
+                    <a href="/HelpDesk">Меню исполнителя</a>
+                    <ul class="menu vertical">
+                        <li><a href="/HelpDesk">открыть заявку</a></li>
+                        <li><a href="/HelpDesk">закрыть заявку</a></li>
+                        <li><a href="/HelpDesk">посмотреть текущие заявки</a></li>
+                        <li><a href="/HelpDesk">посмотреть текущие задачи</a></li>
+                    </ul>
+                </li>
+
+
+                <li th:if="${userAuthority.equals('User')}">
+                    <a href="/HelpDesk">Пользователь</a>
                 </li>
                 <li th:if="${userAuthority.equals('Admin')}">
                     <a href="/Admin">Администратор</a>
